@@ -5,6 +5,14 @@ from pydantic import BaseModel
 # Import joblib to load pre-trained machine learning models from pickle files
 import joblib
 
+import logging
+
+logging.basicConfig(
+    filename="predictions.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s"
+)
+
 # Create a FastAPI application instance that will handle HTTP requests
 app = FastAPI()
 
@@ -34,6 +42,10 @@ def predict(student: Student):
 
     # Convert numeric prediction to readable text: 1 becomes "Pass", 0 becomes "Fail"
     result = "Pass" if prediction == 1 else "Fail"
+
+    logging.info(
+    f"Marks={student.marks}, Attendance={student.attendance}, Prediction={result}, Confidence={probability}"
+)
 
     # Return the prediction response as a JSON object containing input data and prediction results
     return {
