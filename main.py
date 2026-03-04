@@ -9,7 +9,8 @@ import joblib
 app = FastAPI()
 
 # Load the pre-trained student prediction model pipeline from the saved pickle file
-model = joblib.load("student_pipeline.pkl")
+MODEL_VERSION = "v1"
+model = joblib.load(f"models/student_pipeline_{MODEL_VERSION}.pkl")
 
 # Define the Student data model with validation using Pydantic BaseModel
 class Student(BaseModel):

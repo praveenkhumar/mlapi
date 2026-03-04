@@ -24,6 +24,6 @@ pipeline = Pipeline([
 
 pipeline.fit(X, y)
 
-joblib.dump(pipeline, "student_pipeline.pkl")
+joblib.dump(pipeline, "models/student_pipeline_v1.pkl")
 
 print("Pipeline model saved successfully.")
