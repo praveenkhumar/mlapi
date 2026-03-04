@@ -8,7 +8,6 @@ import joblib
 import logging
 
 logging.basicConfig(
-    filename="predictions.log",
     level=logging.INFO,
     format="%(asctime)s - %(message)s"
 )
