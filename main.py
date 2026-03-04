@@ -37,6 +37,7 @@ def predict(student: Student):
 
     # Return the prediction response as a JSON object containing input data and prediction results
     return {
+        "test": "testt",
         # Echo back the student's marks from the request
         "marks": student.marks,
         # Echo back the student's attendance from the request
